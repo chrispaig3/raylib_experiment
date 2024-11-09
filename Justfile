@@ -1,2 +1,2 @@
 build: 
-    clang main.c -Wextra -Wall -L /lib/ -lraylib -o main
+    clang main.c -std=c99 -Wextra -Wall -L /lib/ -lraylib -o main
