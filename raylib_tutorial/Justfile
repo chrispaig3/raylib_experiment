@@ -1,2 +1,5 @@
-build: 
+linux_build: 
     clang blocks.c -std=c99 -Wextra -Wall -L /lib/ -lraylib -o blocks
+
+macos_build:
+    clang blocks.c -std=c99 -Wextra -Wall -L /opt/homebrew/lib -lraylib -o blocks  
