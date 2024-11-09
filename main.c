@@ -3,6 +3,7 @@
 
 #define X_WIN_CAP 1920
 #define Y_WIN_CAP 1080
+#define DELTA GetFrameTime()
 
 static char* WIN_TITLE = "Box Man";
 
@@ -19,27 +20,30 @@ typedef struct Player {
 int main(void) {
   InitWindow(X_WIN_CAP, Y_WIN_CAP, WIN_TITLE);
 
+  // Window Config
+  ConfigFlags vsync = FLAG_VSYNC_HINT;
+  SetConfigFlags(vsync);
+
+  // Scene State
   Camera camera = {0};
   camera.position = CAM_POS;
   camera.target = CAM_TARGET;
   camera.up = CAM_UP;
   camera.fovy = 45.0f;
-    
+  
   Player player = {
       .pos = {0.0f, 1.0f, 0.0f},
       .size = 1.0f,
       .speed = 5.0f,
   };
   
-  SetTargetFPS(160);      
-   
   while (!WindowShouldClose()) 
   {
         
-    if (IsKeyDown(KEY_RIGHT)) player.pos.x += player.speed * GetFrameTime();
-    if (IsKeyDown(KEY_LEFT)) player.pos.x -= player.speed * GetFrameTime();
-    if (IsKeyDown(KEY_UP)) player.pos.z -= player.speed * GetFrameTime();
-    if (IsKeyDown(KEY_DOWN)) player.pos.z += player.speed * GetFrameTime();
+    if (IsKeyDown(KEY_RIGHT)) player.pos.x += player.speed * DELTA;
+    if (IsKeyDown(KEY_LEFT)) player.pos.x -= player.speed * DELTA;
+    if (IsKeyDown(KEY_UP)) player.pos.z -= player.speed * DELTA;
+    if (IsKeyDown(KEY_DOWN)) player.pos.z += player.speed * DELTA;
      
     BeginDrawing();
       ClearBackground(RAYWHITE);
