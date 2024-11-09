@@ -1,0 +1,2 @@
+build: 
+    clang blocks.c -std=c99 -Wextra -Wall -L /lib/ -lraylib -o blocks
