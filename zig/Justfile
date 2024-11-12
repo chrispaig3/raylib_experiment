@@ -1,0 +1,2 @@
+run:
+    zig run -I . src/main.zig -L /lib -lraylib -lc
