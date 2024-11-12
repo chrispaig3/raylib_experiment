@@ -8,7 +8,6 @@ const screenWidth = 1080;
 const title = "Hello, World!";
 
 pub fn main() !void {
-    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
     c.InitWindow(screenHeight, screenWidth, title);
     const vsync: c.ConfigFlags = c.FLAG_VSYNC_HINT;
     c.SetConfigFlags(vsync);
